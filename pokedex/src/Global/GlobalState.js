@@ -8,11 +8,17 @@ const GlobalState = (props) => {
 
   const [pokemonsList, error, loading] = useRequestData(`${BASE_URL}`);
 
-  const states = { pokemonsList, error, loading };
+  const [page, setPage] = useState("home");
+
+  const states = { page };
+
+  const setters = {setPage}
+
+  const requests = { pokemonsList, error, loading }
   
 
   return (
-    <GlobalStateContext.Provider value={{ states }}>
+    <GlobalStateContext.Provider value={{ states, setters, requests }}>
       {props.children}
     </GlobalStateContext.Provider>
   );

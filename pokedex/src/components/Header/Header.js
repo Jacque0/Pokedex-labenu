@@ -4,31 +4,54 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { PageContext } from "../../constants/context";
+import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import { pageData } from "../../constants/pageData";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import {ContainerHeader} from './styleHeader'
 
 export default function Header() {
-  const {page, setPage} = useContext(PageContext);
+  const { states, setters } = useContext(GlobalStateContext);
+  const params = useParams();
+
+  const { page } = states;
+  const { setPage } = setters;
+  const pokemon = params.name || "";
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Link to={pageData[page].path}>
-            <Button onClick={()=>setPage(pageData[page].nextPage)} variant="contained" color="secondary">
-              {pageData[page].button}
-            </Button>
-          </Link>
-          <Typography
-            align="center"
-            variant="h4"
-            component="div"
-            sx={{ flexGrow: 1 }}
-          >
-            {pageData[page].title}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <ContainerHeader display={pageData[page].display}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Link to={pageData[page].path}>
+              <Button
+                onClick={() => setPage(pageData[page].nextPage)}
+                variant="contained"
+                color="secondary"
+              >
+                {pageData[page].button}
+              </Button>
+            </Link>
+            <Typography
+              align="center"
+              variant="h4"
+              component="div"
+              sx={{ flexGrow: 1 }}
+            >
+              {pageData[page].title + pokemon}
+            </Typography>
+            <Link to={"/pokedex"}>
+              <Button
+                className="extra-button"
+                onClick={() => setPage("pokedex")}
+                variant="contained"
+                color="secondary"
+              >
+                Pokédex
+              </Button>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </ContainerHeader>
   );
 }
