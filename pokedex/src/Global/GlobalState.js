@@ -16,7 +16,6 @@ const GlobalState = (props) => {
 
   const requests = { pokemonsList, error, loading }
   
-
   return (
     <GlobalStateContext.Provider value={{ states, setters, requests }}>
       {props.children}
