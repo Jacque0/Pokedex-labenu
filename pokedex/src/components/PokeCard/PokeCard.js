@@ -10,13 +10,14 @@ export default function PokeCard(props) {
         return false
     }
 
+
     return <CardContainer bgColor={props.bgColor ? props.bgColor : 'white'}>
         <p>Nome: {props.name}</p>
         <img src="http://pm1.narvii.com/6434/7a2cb5fc86df1db37db549422128c66186059808_00.jpg" alt="pokemon" />
         <p>Tipo: {props.type}</p>
         <CardFooter>
             <Button 
-                color="secondary" 
+                color="primary" 
                 variant="contained" 
                 disabled={isOnPokedex()}
                 size="medium"
@@ -25,7 +26,7 @@ export default function PokeCard(props) {
             </Button>
             <Button 
                 variant="outlined"
-                color="secondary" 
+                color="primary" 
                 size="medium"
                 href={`/detalhes/${props.id}`}
             >

@@ -4,11 +4,11 @@ import { mainColors } from './colors';
 export const theme = createTheme({
     palette: {
         primary: {
-            main: mainColors.yellow,
-            contrastText: mainColors.red,
+            main: mainColors.blue,
         },
         secondary: {
-            main: mainColors.blue,
+            main: mainColors.yellow,
+            contrastText: mainColors.red,
         },
         error: {
             main: mainColors.red,
