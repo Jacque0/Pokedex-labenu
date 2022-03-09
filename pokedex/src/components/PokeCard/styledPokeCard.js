@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
     overflow: hidden;
     width: 200px;
     height: 250px;
-    background-color: ${props => props.bgColor} ;
+    background-color: ${props => props.bgColor};
     border: 1px solid lightgray;
     img{
         height: 170px;

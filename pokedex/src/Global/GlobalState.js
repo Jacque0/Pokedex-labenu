@@ -10,7 +10,6 @@ const GlobalState = (props) => {
 
   const states = { pokemonsList, error, loading };
   
-
   return (
     <GlobalStateContext.Provider value={{ states }}>
       {props.children}
