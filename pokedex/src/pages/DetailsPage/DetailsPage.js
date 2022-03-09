@@ -11,7 +11,7 @@ import {
 
 const DetailsPage = () => {
   const params = useParams()
-  const [details, error, loading] = useRequestData(`${BASE_URL}${params.id}`)
+  const [details, error, loading] = useRequestData(`${BASE_URL}${params.name}`)
 
   const imgs = details?.sprites.other.home
   const stats = details?.stats
@@ -19,19 +19,17 @@ const DetailsPage = () => {
   const moves = details?.moves
 
   const renderType = types?.map((type) => {
-    return <p>{type.type.name}</p>
+    return <p key={type.type.name}>Tipo {type.slot}: {type.type.name}</p>
   })
 
   const renderMoves = moves?.map((move, i) => {
-    return (i < 6 ? <p>{move.move.name}</p> : <></> )
+    return (i < 6 ? <p key={move.move.name}>{move.move.name}</p> : <></> )
   })
-
-  console.log(types)
 
   const renderPage = details ? (
     <PageContainer>
       <ImgContainer>
-        <img src={imgs.front_default} alt={`${params.id} de frente`} />
+        <img src={imgs.front_default} alt={`${params.id}`} />
         <img src={imgs.front_shiny} alt="pokemon" />
       </ImgContainer>
       <StatsContainer>
@@ -45,7 +43,6 @@ const DetailsPage = () => {
       </StatsContainer>
       <TypeMovesContainer>
         <div className="types">
-            <h3>Types:</h3>
             {renderType}
         </div>
         <div className="moves">
