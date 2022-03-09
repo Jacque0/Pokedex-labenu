@@ -15,7 +15,7 @@ export default function PokeCard(props) {
     //Início do código adicionado por Diego
     const [pokemonData, error, loading]  = useRequestData(`${BASE_URL}${props.pokemonName}`);
     const pokemonType = pokemonData && pokemonData.types[0].type.name;
-    const pokemonPhoto = pokemonData && pokemonData.sprites.other.dream_world.front_default;
+    const pokemonPhoto = pokemonData && pokemonData.sprites.other.home.front_default;
     //Fim do código adicionado por Diego
   
 

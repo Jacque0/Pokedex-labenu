@@ -6,8 +6,8 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext";
 
 const HomePage = () => {
 
-    const { states } = useContext(GlobalStateContext);
-    const { pokemonsList } = states
+    const { requests } = useContext(GlobalStateContext);
+    const { pokemonsList } = requests
 
     const renderListPokemon = pokemonsList && pokemonsList.results.map((p) => {
         return <PokeCard key={p.name} pokemonName={p.name} />
