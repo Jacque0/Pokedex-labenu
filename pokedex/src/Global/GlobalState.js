@@ -8,7 +8,7 @@ const GlobalState = (props) => {
 
   const [pokemonsList, error, loading] = useRequestData(`${BASE_URL}`);
 
-  const states = { pokemonsList, loading };
+  const states = { pokemonsList, error, loading };
   
 
   return (
