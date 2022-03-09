@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import PokeCard from "../../components/PokeCard/PokeCard";
+import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import { ContainerCardsHomePage } from "./styledHomePage";
 
 
@@ -9,8 +11,20 @@ const HomePage = () => {
             Eu sou a HomePage
 
             <ContainerCardsHomePage>
-                {/*Variável contendo os resultados do map, já englobadas pelo card do Léo.
-                Possivelmente sofrerá atualizações para melhorar a responsividade*/}
+                {/*  Dados estáticos a serem substituídos */}
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+
             </ContainerCardsHomePage>
         </>
     )

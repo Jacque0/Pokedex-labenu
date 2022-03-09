@@ -1,19 +1,31 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Zoom } from "@mui/material";
 import React from "react";
+import PokeCard from "../../components/PokeCard/PokeCard";
 
 const PokedexPage = () => {
 
-    return(
+    return (
         <>
             Eu sou a Pokédex page
-
-            <Box m={12}>
-                <Grid container spacing={2}>
-                    {/*Variável contendo os resultados do map, já englobadas pelo card do Léo.
-                    Importa destacar que o layout aqui proposto é via MUI, então possivelmente
-                    sofrerá atualizações porque o estou testando ainda. :)*/}
-                </Grid>
-            </Box>
+            <Zoom in style={{ transitionDelay: '50ms' }}>
+                <Box m={2}>
+                    <Grid container justifyContent="center" alignItems="center">
+                        {/*  Dados estáticos a serem substituídos */}
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                        <PokeCard />
+                    </Grid>
+                </Box>
+            </Zoom>
         </>
     )
 }

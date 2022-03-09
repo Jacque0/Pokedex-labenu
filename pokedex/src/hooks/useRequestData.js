@@ -4,24 +4,20 @@ import { useEffect, useState } from "react";
 const useRequestData = (url) => {
 
     const [data, setData] = useState();
+    const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
-    const token = localStorage.getItem('tokenLabEddit');
-    const headers = { headers: { Authorization: token } };
 
 
     const getData = () => {
-        if (token) {
-            setLoading(true)
-            axios.get(url, headers)
+            axios.get(url)
                 .then((res) => {
                     setData(res.data)
                     setLoading(false)
                 })
                 .catch((err) => {
-                    alert(err.message)
+                    setError(err.message)
                     setLoading(false)
                 })
-        }
     }
 
 
@@ -29,7 +25,7 @@ const useRequestData = (url) => {
         getData();
     }, [url]);
 
-    return [data, loading]
+    return [data, error, loading]
 }
 
 export default useRequestData  
