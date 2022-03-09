@@ -16,6 +16,8 @@ export default function Header() {
   const { page } = states;
   const { setPage } = setters;
   const pokemon = params.name || "";
+  console.log(params.name)
+  console.log(pokemon)
 
   return (
     <ContainerHeader display={pageData[page].display}>
