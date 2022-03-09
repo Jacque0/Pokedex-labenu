@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Button } from "@mui/material";
-import { getThemeProps } from "@mui/system";
 import { CardContainer, CardFooter } from "./styledPokeCard";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/BASE_URL";
