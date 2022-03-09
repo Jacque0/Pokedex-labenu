@@ -1,26 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { GlobalStyle, MainContainer } from "./components/globalStyle";
+import { BrowserRouter } from "react-router-dom";
 import Router from "./router/router";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./constants/theme";
-import { PageContext } from "./constants/context";
 import GlobalState from "./Global/GlobalState";
+import Header from "./components/Header/Header";
 
 function App() {
-  const [page, setPage] = useState("home");
-
-  const contexts = { page, setPage }
-
   return (
     <GlobalState>
-      <PageContext.Provider value={contexts}>
-        <ThemeProvider theme={theme}>
-          <MainContainer>
-            <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <MainContainer>
+          <GlobalStyle />
+          <BrowserRouter>
+            <Header />
             <Router />
-          </MainContainer>
-        </ThemeProvider>
-      </PageContext.Provider>
+          </BrowserRouter>
+        </MainContainer>
+      </ThemeProvider>
     </GlobalState>
   );
 }
