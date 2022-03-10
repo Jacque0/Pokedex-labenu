@@ -25,16 +25,21 @@ export const CardContainer = styled.div`
     font-size: large;
     font-weight: 600;
   }
+  img {
+    height: 170px;
+  }
+`
+
+export const TypeContainer = styled.div`
+  display: flex;
   .type{
     color: gray;
     font-size: 0.8em;
+    margin: 5px;
     margin-bottom: 10px;
     border: 1px solid lightgray;
     padding: 3px;
     border-radius: 5px;
-  }
-  img {
-    height: 170px;
   }
 `
 

@@ -30,7 +30,7 @@ const DetailsPage = () => {
   const stats = details?.stats
   const types = details?.types
   const moves = details?.moves
-  const indice = details?.game_indices[19].game_index
+  const indice = details?.id
 
   let pokemonPhoto
   if (details && details.sprites.other.home.front_default) {
@@ -64,11 +64,11 @@ const DetailsPage = () => {
       >
         <DetailsHeader>
           <TypesContainer>
-            <Type className="type2" typeColor={type1.color}>
+            <Type typeColor={type1.color}>
               {type1.text}
             </Type>
             {type2 ? (
-              <Type className="type2" typeColor={type2[0].color}>
+              <Type typeColor={type2[0].color}>
                 {type2[0].text}
               </Type>
             ) : (
@@ -88,7 +88,7 @@ const DetailsPage = () => {
                   <b>HP:</b> {stats[0].base_stat}
                 </p>
                 <p>
-                  <ColorizeOutlinedIcon />
+                  <ColorizeOutlinedIcon className="sword"/>
                   <b>Ataque:</b> {stats[1].base_stat}
                 </p>
                 <p>
