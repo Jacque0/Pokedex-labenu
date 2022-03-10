@@ -7,6 +7,7 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext"
 import { Link } from "react-router-dom"
 import usePokemonType from "../../hooks/usePokemonType"
 import { pageData } from "../../constants/pageData"
+import pikachusillouette from '../../assets/pikachusillouette.png'
 
 export default function PokeCard(props) {
   const { states, setters } = useContext(GlobalStateContext);
@@ -19,10 +20,16 @@ export default function PokeCard(props) {
 
   //Início do código adicionado por Diego
   const pokemonName = props.pokemonName
-  console.log(pokemonName)
   const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
   const pokemonType = pokemonData && pokemonData.types[0].type.name;
-  const pokemonPhoto = pokemonData && pokemonData.sprites.other.home.front_default;
+  let pokemonPhoto
+  if (pokemonData && pokemonData.sprites.other.home.front_default){
+    pokemonPhoto = pokemonData.sprites.other.home.front_default
+  } else if (pokemonData && pokemonData.sprites.front_default){
+    pokemonPhoto = pokemonData.sprites.front_default
+  } else if (pokemonData && pokemonData.sprites.front_shiny){
+    pokemonPhoto = pokemonData.sprites.front_shiny
+  } else pokemonPhoto = pikachusillouette
   //Fim do código adicionado por Diego
 
   const isOnPokedex = () => {
@@ -54,7 +61,7 @@ export default function PokeCard(props) {
     <CardContainer bgColor={type.color}>
       <p>{capitalizeFirst(pokemonName)}</p>
       <img src={pokemonPhoto} alt="pokemon" />
-      <p>{type.text}</p>
+      <p className="type">{type.text}</p>
       <CardFooter>
         <Button
           color="primary"
