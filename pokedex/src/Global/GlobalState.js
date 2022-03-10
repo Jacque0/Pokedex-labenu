@@ -15,7 +15,7 @@ const GlobalState = (props) => {
 
   const [pokemon, setPokemon] = useState('')
 
-  const [pokedex, setPokedex] = useState([]);
+  const [pokedex, setPokedex] = useState(JSON.parse(localStorage.getItem('pokedex')) || []);
 
   const states = { page, pokedex, pokemon };
 
