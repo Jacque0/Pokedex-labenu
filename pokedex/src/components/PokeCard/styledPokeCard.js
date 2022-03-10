@@ -19,6 +19,7 @@ export const CardFooter = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
     height: 100%;
     width: 100%;
     background-color: 'white';

@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const PageContainer = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     @media screen and (max-width: 700px) {
@@ -9,17 +10,26 @@ export const PageContainer = styled.div`
     }
 `
 
-export const ImgContainer = styled.div`
+export const PokeContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 5px;
     align-items: center;
     justify-content: space-between;
+    background-color: ${props => props.bgColor};
+    border: 1px solid lightgray;
+    width: 80%;
     img{
         height: 250px;
         margin: 5px;
-        border: 1px solid lightgray;
     }
+`
+
+export const DetailsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
 `
 
 export const StatsContainer = styled.div`
