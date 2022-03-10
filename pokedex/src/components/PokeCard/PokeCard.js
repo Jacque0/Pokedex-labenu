@@ -71,6 +71,7 @@ export default function PokeCard(props) {
             color="primary"
             size="medium"
             onClick={() => {setPage("detalhes")
+                            localStorage.setItem('page', 'detalhes')
                             setPokemon(capitalizeFirst(pokemonName))}}
           >
             detalhes
