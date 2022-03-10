@@ -20,19 +20,17 @@ export default function PokeCard(props) {
   }
 
   //Início do código adicionado por Diego
-  const [pokemonData, error, loading] = useRequestData(
-    `${BASE_URL}${props.pokemonName}`
-  )
-  const pokemonType = pokemonData && pokemonData.types[0].type.name
-  const pokemonPhoto =
-    pokemonData && pokemonData.sprites.other.home.front_default
+  const pokemonName = props.pokemonName
+  const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
+  const pokemonType = pokemonData && pokemonData.types[0].type.name;
+  const pokemonPhoto = pokemonData && pokemonData.sprites.other.home.front_default;
   //Fim do código adicionado por Diego
 
   const type = usePokemonType(pokemonType)
 
   return (
     <CardContainer bgColor={type.color}>
-      <p>{capitalizeFirst(props.pokemonName)}</p>
+      <p>{capitalizeFirst(pokemonName)}</p>
       <img src={pokemonPhoto} alt="pokemon" />
       <p>{type.text}</p>
       <CardFooter>
@@ -41,10 +39,11 @@ export default function PokeCard(props) {
           variant="contained"
           disabled={isOnPokedex()}
           size="medium"
+          onClick={() => setters.setPokedex({pokemonName})}
         >
           add
         </Button>
-        <Link to={`/detalhes/${props.pokemonName}`}>
+        <Link to={`/detalhes/${pokemonName}`}>
           <Button
             variant="outlined"
             color="primary"
