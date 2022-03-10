@@ -2,9 +2,10 @@ import { Box, Grid, Zoom } from "@mui/material";
 import React, { useContext } from "react";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import PokeCard from "../../components/PokeCard/PokeCard";
+import { useChangePage } from "../../hooks/useChangePage";
 
 const PokedexPage = () => {
-
+    useChangePage()
     const { states } = useContext(GlobalStateContext);
 
     const renderListPokemon = states.pokedex && states.pokedex.map((p) => {

@@ -10,10 +10,9 @@ import { Link } from "react-router-dom";
 import {ContainerHeader} from './styleHeader'
 
 export default function Header() {
-  const { states, setters } = useContext(GlobalStateContext);
+  const { states } = useContext(GlobalStateContext);
 
   const { page, pokemon } = states;
-  const { setPage, setPokemon } = setters;
 
   return (
     <ContainerHeader display={pageData[page].display}>
@@ -22,9 +21,6 @@ export default function Header() {
           <Toolbar>
             <Link to={pageData[page].path}>
               <Button
-                onClick={() => {setPage(pageData[page].nextPage)
-                                localStorage.setItem('page', pageData[page].nextPage)
-                                setPokemon('')}}
                 variant="contained"
                 color="secondary"
               >
@@ -42,9 +38,6 @@ export default function Header() {
             <Link to={"/pokedex"}>
               <Button
                 className="extra-button"
-                onClick={() => {setPage("pokedex")
-                                localStorage.setItem('page', 'pokedex')
-                                setPokemon('')}}
                 variant="contained"
                 color="secondary"
               >

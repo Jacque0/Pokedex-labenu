@@ -22,8 +22,11 @@ import AutoFixHighOutlinedIcon from "@mui/icons-material/AutoFixHighOutlined"
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined"
 import DirectionsRunOutlinedIcon from "@mui/icons-material/DirectionsRunOutlined"
 import { Button } from "@mui/material"
+import BoxError from "../../components/BoxError";
+import { useChangePage } from "../../hooks/useChangePage";
 
 const DetailsPage = () => {
+  useChangePage();
   const params = useParams()
   const [details, error, loading] = useRequestData(`${BASE_URL}${params.name}`)
 
@@ -123,7 +126,10 @@ const DetailsPage = () => {
     "loading..."
   )
 
-  return <>{renderPage}</>
+  return (<>
+    {renderPage}
+    <BoxError error={error} />
+  </>)
 }
 
 export default DetailsPage
