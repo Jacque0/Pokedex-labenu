@@ -11,11 +11,11 @@ const GlobalState = (props) => {
 
   const [pokemonsList, error, loading] = useRequestData(`${BASE_URL}?limit=20&offset=${(pagination - 1) * 20}`);
   
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState(localStorage.getItem('page') || "home");
 
   const [pokemon, setPokemon] = useState('')
 
-  const [pokedex, setPokedex] = useState([]);
+  const [pokedex, setPokedex] = useState(JSON.parse(localStorage.getItem('pokedex')) || []);
 
   const states = { page, pokedex, pokemon };
 

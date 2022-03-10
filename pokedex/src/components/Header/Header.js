@@ -23,6 +23,7 @@ export default function Header() {
             <Link to={pageData[page].path}>
               <Button
                 onClick={() => {setPage(pageData[page].nextPage)
+                                localStorage.setItem('page', pageData[page].nextPage)
                                 setPokemon('')}}
                 variant="contained"
                 color="secondary"
@@ -42,6 +43,7 @@ export default function Header() {
               <Button
                 className="extra-button"
                 onClick={() => {setPage("pokedex")
+                                localStorage.setItem('page', 'pokedex')
                                 setPokemon('')}}
                 variant="contained"
                 color="secondary"

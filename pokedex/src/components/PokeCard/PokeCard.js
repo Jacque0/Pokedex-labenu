@@ -19,7 +19,6 @@ export default function PokeCard(props) {
 
   //Início do código adicionado por Diego
   const pokemonName = props.pokemonName
-  console.log(pokemonName)
   const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
   const pokemonType = pokemonData && pokemonData.types[0].type.name;
   const pokemonPhoto = pokemonData && pokemonData.sprites.other.home.front_default;
@@ -46,6 +45,7 @@ export default function PokeCard(props) {
       newPokedex.splice(index, 1)
     }
     setPokedex(newPokedex)
+    localStorage.setItem('pokedex', JSON.stringify(newPokedex))
   }
 
   const type = usePokemonType(pokemonType)
@@ -71,6 +71,7 @@ export default function PokeCard(props) {
             color="primary"
             size="medium"
             onClick={() => {setPage("detalhes")
+                            localStorage.setItem('page', 'detalhes')
                             setPokemon(capitalizeFirst(pokemonName))}}
           >
             detalhes
