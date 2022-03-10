@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useContext } from "react";
 import { Button } from "@mui/material";
 import { CardContainer, CardFooter } from "./styledPokeCard";
@@ -5,39 +6,54 @@ import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/BASE_URL";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import { Link } from "react-router-dom";
+=======
+import { useContext } from "react"
+import { Button } from "@mui/material"
+import { CardContainer, CardFooter } from "./styledPokeCard"
+import useRequestData from "../../hooks/useRequestData"
+import { BASE_URL } from "../../constants/BASE_URL"
+import { GlobalStateContext } from "../../Global/GlobalStateContext"
+import { Link } from "react-router-dom"
+import usePokemonType from "../../hooks/usePokemonType"
+>>>>>>> a9d538b844f0b2df4476a0b3252e9526d1e628f6
 
 export default function PokeCard(props) {
-  const { setters } = useContext(GlobalStateContext);
+  const { setters } = useContext(GlobalStateContext)
+
+  const capitalizeFirst = (str) => { 
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
 
   const isOnPokedex = () => {
-    // checks if pokemon is already on pokedex and returns a boolean
-    return false;
-  };
+    // checa se o pokemon está na pokedex e retorna um boolean
+    return false
+  }
 
   //Início do código adicionado por Diego
-  const [pokemonData, error, loading] = useRequestData(
-    `${BASE_URL}${props.pokemonName}`
-  );
+  const pokemonName = props.pokemonName
+  const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
   const pokemonType = pokemonData && pokemonData.types[0].type.name;
-  const pokemonPhoto =
-    pokemonData && pokemonData.sprites.other.home.front_default;
+  const pokemonPhoto = pokemonData && pokemonData.sprites.other.home.front_default;
   //Fim do código adicionado por Diego
 
+  const type = usePokemonType(pokemonType)
+
   return (
-    <CardContainer bgColor={props.bgColor ? props.bgColor : "white"}>
-      <p>Nome: {props.pokemonName}</p>
+    <CardContainer bgColor={type.color}>
+      <p>{capitalizeFirst(pokemonName)}</p>
       <img src={pokemonPhoto} alt="pokemon" />
-      <p>Tipo: {pokemonType}</p>
+      <p>{type.text}</p>
       <CardFooter>
         <Button
           color="primary"
           variant="contained"
           disabled={isOnPokedex()}
           size="medium"
+          onClick={() => setters.setPokedex({pokemonName})}
         >
           add
         </Button>
-        <Link to={`/detalhes/${props.pokemonName}`}>
+        <Link to={`/detalhes/${pokemonName}`}>
           <Button
             variant="outlined"
             color="primary"
@@ -49,5 +65,5 @@ export default function PokeCard(props) {
         </Link>
       </CardFooter>
     </CardContainer>
-  );
+  )
 }
