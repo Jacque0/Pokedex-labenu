@@ -13,11 +13,13 @@ const GlobalState = (props) => {
   
   const [page, setPage] = useState("home");
 
-  const [pokedex, setPokedex] = useState();
+  const [pokemon, setPokemon] = useState('')
 
-  const states = { page, pokedex };
+  const [pokedex, setPokedex] = useState([]);
 
-  const setters = { setPage, setPokedex, onChangePage };
+  const states = { page, pokedex, pokemon };
+
+  const setters = { setPage, setPokedex, onChangePage, setPokemon };
 
   const requests = { pokemonsList, error, loading };
 
