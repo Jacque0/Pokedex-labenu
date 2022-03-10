@@ -4,7 +4,7 @@ export const typeDetails = [
     color: '#EAEADE'},
     {type: 'fighting',
     text: 'lutador',
-        color: '#FFAEAA'},
+        color: '#FFC9B4'},
     {type: 'flying',
     text: 'voador',
         color: '#DCE5EA'},
