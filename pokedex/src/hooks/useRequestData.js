@@ -15,7 +15,7 @@ const useRequestData = (url) => {
                     setLoading(false)
                 })
                 .catch((err) => {
-                    setError(err.message)
+                    setError(err.response)
                     setLoading(false)
                 })
     }
