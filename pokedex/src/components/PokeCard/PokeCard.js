@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { Button } from "@mui/material"
-import { CardContainer, CardFooter } from "./styledPokeCard"
+import { CardContainer, CardFooter, TypeContainer } from "./styledPokeCard"
 import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from "../../constants/BASE_URL"
 import { GlobalStateContext } from "../../Global/GlobalStateContext"
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 import usePokemonType from "../../hooks/usePokemonType"
 import { pageData } from "../../constants/pageData"
 import pikachusillouette from '../../assets/pikachusillouette.png'
+import { typeDetails } from "../../constants/typeDetails"
 
 export default function PokeCard(props) {
   const { states, setters } = useContext(GlobalStateContext);
@@ -21,7 +22,7 @@ export default function PokeCard(props) {
   //Início do código adicionado por Diego
   const pokemonName = props.pokemonName
   const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
-  const pokemonType = pokemonData && pokemonData.types[0].type.name;
+  const pokemonType = pokemonData && pokemonData.types;
   let pokemonPhoto
   if (pokemonData && pokemonData.sprites.other.home.front_default){
     pokemonPhoto = pokemonData.sprites.other.home.front_default
@@ -31,6 +32,8 @@ export default function PokeCard(props) {
     pokemonPhoto = pokemonData.sprites.front_shiny
   } else pokemonPhoto = pikachusillouette
   //Fim do código adicionado por Diego
+
+  const indice = pokemonData?.id
 
   const isOnPokedex = () => {
     // checa se o pokemon está na pokedex e retorna um boolean
@@ -56,13 +59,26 @@ export default function PokeCard(props) {
     localStorage.setItem('pokedex', JSON.stringify(newPokedex))
   }
 
-  const type = usePokemonType(pokemonType)
+  const type = usePokemonType(pokemonType ? pokemonType[0].type.name : "")
+  let type2
+  if (pokemonType && pokemonType.length > 1)
+    type2 = typeDetails
+      .filter((type) => {
+        return pokemonType[1].type.name === type.type
+      })
+      .map((type) => {
+        return type
+      })
+
 
   return (
     <CardContainer bgColor={type.color}>
-      <p>{capitalizeFirst(pokemonName)}</p>
       <img src={pokemonPhoto} alt="pokemon" />
+      <p>{indice}. {capitalizeFirst(pokemonName)}</p>
+      <TypeContainer>
       <p className="type">{type.text}</p>
+      {type2 ? <p className="type">{type2[0].text}</p> : <></>}
+      </TypeContainer>
       <CardFooter>
         <Button
           color="primary"

@@ -7,8 +7,7 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100vh;
-  background-color: whitesmoke;
+  margin: auto;
   overflow-y: scroll;
   @media screen and (max-width: 700px) {
     flex-direction: column;
@@ -98,6 +97,9 @@ export const StatsContainer = styled.div`
     color: gray;
     border-bottom: 2px solid gray;
     margin-bottom: 10px;
+  }
+  .sword {
+    transform: rotate(180deg);
   }
   .statsContainer {
     display: flex;
