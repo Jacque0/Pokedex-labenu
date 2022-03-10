@@ -1,21 +1,22 @@
 import { Box, Grid, Zoom } from "@mui/material";
-import React from "react";
-import { BASE_URL } from "../../constants/BASE_URL";
-import useRequestData from "../../hooks/useRequestData";
+import React, { useContext } from "react";
+import { GlobalStateContext } from "../../Global/GlobalStateContext";
+import PokeCard from "../../components/PokeCard/PokeCard";
 
-const PokedexPage = (props) => {
+const PokedexPage = () => {
 
-    // const [pokemonData, error, loading]  = useRequestData(`${BASE_URL}${props.pokemonName}`);
-    // const pokemonType = pokemonData && pokemonData.types[0].type.name;
-    // const pokemonPhoto = pokemonData && pokemonData.sprites.other.dream_world.front_default;
+    const { states, setters, requests } = useContext(GlobalStateContext);
+
+    // const renderListPokemon = states.pokedex && states.pokedex.map((p) => {
+    //     <PokeCard key={p.pokemonName} pokemonName={p.pokemonName} />
+    // })
 
     return (
         <>
-            Eu sou a PokédexPage
             <Zoom in style={{ transitionDelay: '50ms' }}>
                 <Box m={2}>
                     <Grid container justifyContent="center" alignItems="center">
-                        {/* Aguardando pokémons */}
+                        {/* {renderListPokemon} */}
                     </Grid>
                 </Box>
             </Zoom>
