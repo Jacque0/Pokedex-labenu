@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 export const PageContainer = styled.div`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +40,26 @@ export const PokeContainer = styled.div`
   }
 `
 
+export const TypesContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+`
+
+export const Type = styled.p`
+  color: black;
+  font-weight: 700;
+  opacity: 80%;
+  margin: 15px;
+  margin-right: 0;
+  border-radius: 15px;
+  padding: 3px 5px;
+  border: 1px solid gray;
+  box-shadow: 0px 0px 10px gray;
+  background-color: ${(props) => props.typeColor};
+`
+
 export const DetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -54,29 +76,10 @@ export const StatsContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   height: 150px;
-  border: 1px solid lightgray;
   margin: 10px;
   p {
     margin: 15px;
   }
-`
-
-export const TypesContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 5px;
-`
-
-export const Type = styled.p`
-  color: black;
-  margin: 15px;
-  margin-right: 0;
-  border-radius: 10px;
-  padding: 3px 5px;
-  border: 1px solid lightgray;
-  box-shadow: 0px 0px 15px lightgray;
-  background-color: ${(props) => props.typeColor};
 `
 
 export const MovesContainer = styled.div`
@@ -84,6 +87,10 @@ export const MovesContainer = styled.div`
   flex-direction: column;
   margin: 5px;
   align-items: center;
+
+  h3 {
+    border-bottom: 1px solid black;
+  }
   .moves {
     height: 100%;
     width: 100%;
