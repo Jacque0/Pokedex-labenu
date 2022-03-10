@@ -5,18 +5,18 @@ import PokeCard from "../../components/PokeCard/PokeCard";
 
 const PokedexPage = () => {
 
-    const { states, setters, requests } = useContext(GlobalStateContext);
+    const { states } = useContext(GlobalStateContext);
 
-    // const renderListPokemon = states.pokedex && states.pokedex.map((p) => {
-    //     <PokeCard key={p.pokemonName} pokemonName={p.pokemonName} />
-    // })
+    const renderListPokemon = states.pokedex && states.pokedex.map((p) => {
+        return <PokeCard key={p} pokemonName={p} />
+    })
 
     return (
         <>
             <Zoom in style={{ transitionDelay: '50ms' }}>
                 <Box m={2}>
                     <Grid container justifyContent="center" alignItems="center">
-                        {/* {renderListPokemon} */}
+                        {renderListPokemon}
                     </Grid>
                 </Box>
             </Zoom>

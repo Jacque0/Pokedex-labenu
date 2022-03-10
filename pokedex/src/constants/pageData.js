@@ -5,6 +5,7 @@ export const pageData = {
         path: '/pokedex',
         nextPage: 'pokedex',
         display: 'none',
+        buttonCard: 'add'
     },
     pokedex:{
         title: 'Pokédex',
@@ -12,6 +13,7 @@ export const pageData = {
         path: '/',
         nextPage: 'home',
         display: 'none',
+        buttonCard: 'Remover'
     },
     detalhes:{
         title: '',

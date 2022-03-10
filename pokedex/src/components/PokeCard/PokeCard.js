@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { useContext } from "react";
-import { Button } from "@mui/material";
-import { CardContainer, CardFooter } from "./styledPokeCard";
-import useRequestData from "../../hooks/useRequestData";
-import { BASE_URL } from "../../constants/BASE_URL";
-import { GlobalStateContext } from "../../Global/GlobalStateContext";
-import { Link } from "react-router-dom";
-=======
 import { useContext } from "react"
 import { Button } from "@mui/material"
 import { CardContainer, CardFooter } from "./styledPokeCard"
@@ -15,26 +6,47 @@ import { BASE_URL } from "../../constants/BASE_URL"
 import { GlobalStateContext } from "../../Global/GlobalStateContext"
 import { Link } from "react-router-dom"
 import usePokemonType from "../../hooks/usePokemonType"
->>>>>>> a9d538b844f0b2df4476a0b3252e9526d1e628f6
+import { pageData } from "../../constants/pageData"
 
 export default function PokeCard(props) {
-  const { setters } = useContext(GlobalStateContext)
+  const { states, setters } = useContext(GlobalStateContext);
+  const { page, pokedex } = states;
+  const { setPage, setPokedex, setPokemon } = setters;
 
   const capitalizeFirst = (str) => { 
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
-  const isOnPokedex = () => {
-    // checa se o pokemon está na pokedex e retorna um boolean
-    return false
-  }
-
   //Início do código adicionado por Diego
   const pokemonName = props.pokemonName
+  console.log(pokemonName)
   const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
   const pokemonType = pokemonData && pokemonData.types[0].type.name;
   const pokemonPhoto = pokemonData && pokemonData.sprites.other.home.front_default;
   //Fim do código adicionado por Diego
+
+  const isOnPokedex = () => {
+    // checa se o pokemon está na pokedex e retorna um boolean
+    if (page === 'home'){
+      return pokedex.includes(pokemonName)
+    } else{
+      return false
+    }
+  }
+
+  const addOrRemove = () => {
+    //Adiciona ou Remove pokémons da pokédex
+    const newPokedex = [...pokedex]
+    if (page === 'home'){
+      newPokedex.push(pokemonName)
+    } else if(page === 'pokedex'){
+      const index = pokedex.findIndex((item) => {
+        return item === pokemonName;
+      });
+      newPokedex.splice(index, 1)
+    }
+    setPokedex(newPokedex)
+  }
 
   const type = usePokemonType(pokemonType)
 
@@ -49,16 +61,17 @@ export default function PokeCard(props) {
           variant="contained"
           disabled={isOnPokedex()}
           size="medium"
-          onClick={() => setters.setPokedex({pokemonName})}
+          onClick={addOrRemove}
         >
-          add
+          {pageData[page].buttonCard}
         </Button>
         <Link to={`/detalhes/${pokemonName}`}>
           <Button
             variant="outlined"
             color="primary"
             size="medium"
-            onClick={() => setters.setPage("detalhes")}
+            onClick={() => {setPage("detalhes")
+                            setPokemon(capitalizeFirst(pokemonName))}}
           >
             detalhes
           </Button>

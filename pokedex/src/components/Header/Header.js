@@ -6,18 +6,14 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import { pageData } from "../../constants/pageData";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {ContainerHeader} from './styleHeader'
 
 export default function Header() {
   const { states, setters } = useContext(GlobalStateContext);
-  const params = useParams();
 
-  const { page } = states;
-  const { setPage } = setters;
-  const pokemon = params.name || "";
-  console.log(params.name)
-  console.log(pokemon)
+  const { page, pokemon } = states;
+  const { setPage, setPokemon } = setters;
 
   return (
     <ContainerHeader display={pageData[page].display}>
@@ -26,7 +22,8 @@ export default function Header() {
           <Toolbar>
             <Link to={pageData[page].path}>
               <Button
-                onClick={() => setPage(pageData[page].nextPage)}
+                onClick={() => {setPage(pageData[page].nextPage)
+                                setPokemon('')}}
                 variant="contained"
                 color="secondary"
               >
@@ -39,12 +36,13 @@ export default function Header() {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              {pageData[page].title + pokemon}
+              {pageData[page].title+pokemon}
             </Typography>
             <Link to={"/pokedex"}>
               <Button
                 className="extra-button"
-                onClick={() => setPage("pokedex")}
+                onClick={() => {setPage("pokedex")
+                                setPokemon('')}}
                 variant="contained"
                 color="secondary"
               >
