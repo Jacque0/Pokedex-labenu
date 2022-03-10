@@ -9,6 +9,7 @@ const useRequestData = (url) => {
 
 
     const getData = () => {
+        setLoading(true)
             axios.get(url)
                 .then((res) => {
                     setData(res.data)
