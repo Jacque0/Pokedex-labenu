@@ -12,7 +12,7 @@ import pikachusillouette from '../../assets/pikachusillouette.png'
 export default function PokeCard(props) {
   const { states, setters } = useContext(GlobalStateContext);
   const { page, pokedex } = states;
-  const { setPage, setPokedex, setPokemon } = setters;
+  const { setPokedex } = setters;
 
   const capitalizeFirst = (str) => { 
     return str.charAt(0).toUpperCase() + str.slice(1)
@@ -78,9 +78,6 @@ export default function PokeCard(props) {
             variant="outlined"
             color="primary"
             size="medium"
-            onClick={() => {setPage("detalhes")
-                            localStorage.setItem('page', 'detalhes')
-                            setPokemon(capitalizeFirst(pokemonName))}}
           >
             detalhes
           </Button>

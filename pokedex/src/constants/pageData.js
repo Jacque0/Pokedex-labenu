@@ -23,3 +23,13 @@ export const pageData = {
         display: '',
     }
 }
+
+export const pageType = (path) => {
+    if (path === 'pokedex'){
+        return 'pokedex'
+    } else if (path.includes('detalhes')){
+        return 'detalhes'
+    } else {
+        return 'home'
+    }
+}
