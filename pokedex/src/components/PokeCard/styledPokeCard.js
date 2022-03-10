@@ -21,8 +21,17 @@ export const CardContainer = styled.div`
   p {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    margin: 5px;
+    margin-top: 5px;
+    font-size: large;
     font-weight: 600;
+  }
+  .type{
+    color: gray;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    padding: 3px;
+    border-radius: 5px;
   }
   img {
     height: 170px;

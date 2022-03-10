@@ -6,12 +6,13 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  height: 100vh;
   background-color: whitesmoke;
-  height: auto;
   overflow-y: scroll;
   @media screen and (max-width: 700px) {
     flex-direction: column;
+    height: auto;
   }
 `
 
@@ -33,10 +34,26 @@ export const PokeContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0px 4px 10px lightgray;
   overflow: hidden;
-  height: 70vh;
   img {
     height: 300px;
     margin: 5px;
+  }
+`
+
+export const DetailsHeader = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .index {
+    margin: 15px;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 3px;
+    border-radius: 10px;
+    font-weight: 500;
+    opacity: 60%;
+    box-shadow: 0px 1px 4px gray;
   }
 `
 
@@ -56,7 +73,7 @@ export const Type = styled.p`
   border-radius: 15px;
   padding: 3px 5px;
   border: 1px solid gray;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 1px 10px gray;
   background-color: ${(props) => props.typeColor};
 `
 
@@ -64,38 +81,62 @@ export const DetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
-  align-items: center;
   width: 100%;
   background-color: white;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
 `
 
 export const StatsContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  height: 150px;
   margin: 10px;
-  p {
-    margin: 15px;
+  h3 {
+    width: 100%;
+    color: gray;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+  }
+  .statsContainer {
+    display: flex;
+    flex-direction: row;
+    div {
+      margin: 5px 10px;
+      p {
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        b {
+          margin: 0 3px;
+        }
+      }
+    }
+    @media screen and (max-width: 856px) {
+      flex-direction: column;
+    }
   }
 `
 
 export const MovesContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 5px;
-  align-items: center;
-
+  margin: 10px;
+  margin-top: 15px;
+  width: 40%;
   h3 {
-    border-bottom: 1px solid black;
+    color: gray;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
   }
-  .moves {
-    height: 100%;
+  p {
+    margin: 2px;
+    font-weight: 500;
+    border-bottom: 1px solid whitesmoke;
+  }
+  @media screen and (max-width: 700px) {
     width: 100%;
-    margin-top: 5px;
-    border: 1px solid lightgray;
-    justify-content: space-between;
   }
 `
