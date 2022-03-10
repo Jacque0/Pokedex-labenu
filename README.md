@@ -19,6 +19,7 @@ ________________________________________________________________________________
 
 **Sites e recursos**:\
 [PokeAPI](https://pokeapi.co/)\
+[Postman](https://www.postman.com/)\
 [Trello](https://trello.com/b/MAcvX0yf/pokedex)
 
 **O que funciona**
