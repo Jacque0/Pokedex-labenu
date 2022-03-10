@@ -15,6 +15,7 @@ import {
 import usePokemonType from "../../hooks/usePokemonType"
 import { typeDetails } from "../../constants/typeDetails"
 import { type } from "@testing-library/user-event/dist/type"
+import { PokeLoading } from "../../assets/PokeLoading"
 
 const DetailsPage = () => {
   const params = useParams()
