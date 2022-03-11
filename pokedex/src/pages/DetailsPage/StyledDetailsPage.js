@@ -66,7 +66,7 @@ export const TypesContainer = styled.div`
 `
 
 export const Type = styled.p`
-  color: black;
+  color: rgba(0, 0, 0, 0.75);
   font-weight: 700;
   opacity: 80%;
   margin: 15px;
