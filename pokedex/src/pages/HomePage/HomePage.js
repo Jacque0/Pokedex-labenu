@@ -12,7 +12,7 @@ const HomePage = () => {
   useChangePage();
   const { states, setters, requests } = useContext(GlobalStateContext);
   const { pokemonsList, loading, error } = requests;
-  const matches = useMediaQuery('(max-width:600px)');
+  const matches = useMediaQuery('(max-width:700px)');
 
   const renderListPokemon = loading ? <Loading /> :
     pokemonsList && pokemonsList.results.map((p) => {
@@ -37,7 +37,7 @@ const HomePage = () => {
               defaultPage={states.pagination}
               variant="outlined"
               color="primary"
-              siblingCount= {matches? 1 : 3}
+              siblingCount= {matches? 1 : 2}
               boundaryCount={matches? 1 : 3}
               showFirstButton
               showLastButton
