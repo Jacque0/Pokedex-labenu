@@ -21,7 +21,6 @@ import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined"
 import AutoFixHighOutlinedIcon from "@mui/icons-material/AutoFixHighOutlined"
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined"
 import DirectionsRunOutlinedIcon from "@mui/icons-material/DirectionsRunOutlined"
-import { Button } from "@mui/material"
 import BoxError from "../../components/BoxError";
 import { useChangePage } from "../../hooks/useChangePage";
 import { Loading } from "../../components/Loading/Loading"
@@ -46,7 +45,7 @@ const DetailsPage = () => {
   } else pokemonPhoto = pikachusillouette
 
   const renderMoves = moves?.map((move, i) => {
-    return i < 5 ? <p key={i}>{move.move.name}</p> : <></>
+    return i < 5 && <p key={i}>{move.move.name}</p>
   })
 
   const type1 = usePokemonType(types ? types[0].type.name : "")
@@ -60,7 +59,7 @@ const DetailsPage = () => {
         return type
       })
 
-  const renderPage = details ? (
+  const renderPage = details && (
     <PageContainer>
       <PokeContainer
         bgColor1={type1.color}
@@ -123,12 +122,11 @@ const DetailsPage = () => {
         </DetailsContainer>
       </PokeContainer>
     </PageContainer>
-  ) : (
-    <Loading />
   )
 
   return (<>
-    {renderPage}
+    {loading && <Loading />}
+    {!loading && renderPage}
     <BoxError error={error} />
   </>)
 }
