@@ -6,16 +6,20 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import BoxError from "../../components/BoxError";
 import { useChangePage } from "../../hooks/useChangePage";
 import { Loading } from "../../components/Loading/Loading";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const HomePage = () => {
   useChangePage();
   const { states, setters, requests } = useContext(GlobalStateContext);
   const { pokemonsList, loading, error } = requests;
+  const matches = useMediaQuery('(max-width:600px)');
 
   const renderListPokemon = loading ? <Loading /> :
     pokemonsList && pokemonsList.results.map((p) => {
       return <PokeCard key={p.name} pokemonName={p.name} />;
     });
+
+  const onChangePage = (event, value) => { setters.setPagination(value) }
 
   return (
     <>
@@ -26,19 +30,19 @@ const HomePage = () => {
           </Grid>
 
           <Box
-            style={{ width: "100%", display: "flex", justifyContent: "center", marginTop: '25px' }}
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
             <Pagination
               count={57}
               defaultPage={states.pagination}
               variant="outlined"
               color="primary"
-              siblingCount={1}
-              boundaryCount={1}
+              siblingCount= {matches? 1 : 3}
+              boundaryCount={matches? 1 : 3}
               showFirstButton
               showLastButton
-              size="small"
-              onChange={setters.onChangePage}
+              size = {matches?'small':'medium'}
+              onChange={onChangePage}
             />
           </Box>
         </Box>

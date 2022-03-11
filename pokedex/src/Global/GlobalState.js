@@ -7,7 +7,6 @@ import { GlobalStateContext } from './GlobalStateContext'
 const GlobalState = (props) => {
 
   const [pagination, setPagination] = useState(1);
-  const onChangePage = (event, value) => {setPagination(value)}
 
   const [pokemonsList, error, loading] = useRequestData(`${BASE_URL}?limit=20&offset=${(pagination - 1) * 20}`);
   
@@ -19,7 +18,7 @@ const GlobalState = (props) => {
 
   const states = { page, pokedex, pokemon, pagination };
 
-  const setters = { setPage, setPokedex, onChangePage, setPokemon };
+  const setters = { setPage, setPokedex, setPokemon, setPagination };
 
   const requests = { pokemonsList, error, loading };
 

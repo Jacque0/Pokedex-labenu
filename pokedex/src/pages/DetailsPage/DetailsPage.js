@@ -24,6 +24,7 @@ import DirectionsRunOutlinedIcon from "@mui/icons-material/DirectionsRunOutlined
 import { Button } from "@mui/material"
 import BoxError from "../../components/BoxError";
 import { useChangePage } from "../../hooks/useChangePage";
+import { Loading } from "../../components/Loading/Loading"
 
 const DetailsPage = () => {
   useChangePage();
@@ -123,7 +124,7 @@ const DetailsPage = () => {
       </PokeContainer>
     </PageContainer>
   ) : (
-    "loading..."
+    <Loading />
   )
 
   return (<>
