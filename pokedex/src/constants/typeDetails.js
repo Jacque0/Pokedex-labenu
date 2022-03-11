@@ -28,7 +28,7 @@ export const typeDetails = [
         color: '#EDEFEE'},
     {type: 'fire',
     text: 'fogo',
-        color: '#FEEAC5'},
+        color: '#FE9F80'},
     {type: 'water',
     text: 'água',
         color: '#9BE9FF'},

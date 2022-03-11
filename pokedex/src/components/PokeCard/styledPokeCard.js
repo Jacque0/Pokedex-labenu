@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  margin: 10px 5px;
   align-items: center;
   overflow: hidden;
   width: 200px;
@@ -27,6 +27,12 @@ export const CardContainer = styled.div`
   }
   img {
     height: 170px;
+  }
+  @media screen and (max-width: 452px) {
+    width: 90%;
+    img{
+      height: 250px;
+    }
   }
 `
 

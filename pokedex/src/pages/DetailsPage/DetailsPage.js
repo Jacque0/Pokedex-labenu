@@ -116,7 +116,7 @@ const DetailsPage = () => {
             </div>
           </StatsContainer>
           <MovesContainer>
-            <h3>Principais Habilidades:</h3>
+            <h3>Principais Habilidades</h3>
             {renderMoves}
           </MovesContainer>
         </DetailsContainer>
