@@ -28,6 +28,12 @@ export const CardContainer = styled.div`
   img {
     height: 170px;
   }
+  @media screen and (max-width: 452px) {
+    width: 90%;
+    img{
+      height: 250px;
+    }
+  }
 `
 
 export const TypeContainer = styled.div`

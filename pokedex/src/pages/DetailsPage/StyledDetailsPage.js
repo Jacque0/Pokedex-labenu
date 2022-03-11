@@ -36,6 +36,8 @@ export const PokeContainer = styled.div`
   img {
     height: 300px;
     margin: 5px;
+    position: relative;
+    margin-bottom: -50px;
   }
 `
 
@@ -92,6 +94,7 @@ export const StatsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px;
+  margin-top: 50px;
   h3 {
     width: 100%;
     color: gray;
@@ -106,6 +109,9 @@ export const StatsContainer = styled.div`
     flex-direction: row;
     div {
       margin: 5px 10px;
+      @media screen and (max-width: 856px) {
+        margin: 0 10px;
+    }
       p {
         display: flex;
         align-items: center;
@@ -114,6 +120,7 @@ export const StatsContainer = styled.div`
           margin: 0 3px;
         }
       }
+
     }
     @media screen and (max-width: 856px) {
       flex-direction: column;
@@ -126,7 +133,7 @@ export const MovesContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px;
-  margin-top: 15px;
+  margin-top: 50px;
   width: 40%;
   h3 {
     color: gray;
@@ -134,11 +141,12 @@ export const MovesContainer = styled.div`
     margin-bottom: 10px;
   }
   p {
-    margin: 2px;
+    margin: 2px 10px;
     font-weight: 500;
     border-bottom: 1px solid whitesmoke;
   }
   @media screen and (max-width: 700px) {
     width: 100%;
+    margin-top: 5px;
   }
 `
