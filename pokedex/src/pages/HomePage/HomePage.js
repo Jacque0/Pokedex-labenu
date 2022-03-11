@@ -5,15 +5,15 @@ import PokeCard from "../../components/PokeCard/PokeCard";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import BoxError from "../../components/BoxError";
 import { useChangePage } from "../../hooks/useChangePage";
+import { Loading } from "../../components/Loading/Loading";
 
 const HomePage = () => {
   useChangePage();
-  const { setters, requests } = useContext(GlobalStateContext);
-  const { pokemonsList, error } = requests;
+  const { states, setters, requests } = useContext(GlobalStateContext);
+  const { pokemonsList, loading, error } = requests;
 
-  const renderListPokemon =
-    pokemonsList &&
-    pokemonsList.results.map((p) => {
+  const renderListPokemon = loading ? <Loading /> :
+    pokemonsList && pokemonsList.results.map((p) => {
       return <PokeCard key={p.name} pokemonName={p.name} />;
     });
 
@@ -30,12 +30,14 @@ const HomePage = () => {
           >
             <Pagination
               count={57}
+              defaultPage={states.pagination}
               variant="outlined"
               color="primary"
-              siblingCount={2}
-              boundaryCount={3}
+              siblingCount={1}
+              boundaryCount={1}
               showFirstButton
               showLastButton
+              size="small"
               onChange={setters.onChangePage}
             />
           </Box>
