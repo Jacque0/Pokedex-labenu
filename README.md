@@ -24,7 +24,7 @@ ________________________________________________________________________________
 
 **O que funciona**
 - Visualização de 20 pokémons por página, numerados: os seus tipos são especificados no card e definem as cores de fundo;
-- É possível adicionar Pokémons à Pokédex e também removê-los;
+- É possível adicionar Pokémons à Pokédex e também removê-los. A seleção de Pokémons do usuário permanece disponível mesmo após atualização da página;
 - O header conduz o usuário, sinalizando as diferentes seções em que se encontra, proporcionando diferentes botões e títulos;
 - É possível ver os detalhes dos Pokémons, verificando suas habilidades;
 - Pode-se percorrer todos os 1228 pokémos por meio da paginação;
