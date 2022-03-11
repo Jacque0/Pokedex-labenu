@@ -35,9 +35,9 @@ export const PokeContainer = styled.div`
   overflow: hidden;
   img {
     height: 300px;
-    margin: 5px;
     position: relative;
     margin-bottom: -50px;
+    margin-top: -50px;
   }
 `
 
