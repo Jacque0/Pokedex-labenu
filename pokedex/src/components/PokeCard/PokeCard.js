@@ -21,7 +21,7 @@ export default function PokeCard(props) {
 
   //Início do código adicionado por Diego
   const pokemonName = props.pokemonName
-  const [pokemonData, error, loading] = useRequestData(`${BASE_URL}${pokemonName}`);
+  const pokemonData = useRequestData(`${BASE_URL}${pokemonName}`)[0];
   const pokemonType = pokemonData && pokemonData.types;
   let pokemonPhoto
   if (pokemonData && pokemonData.sprites.other.home.front_default){
