@@ -30,7 +30,7 @@ const HomePage = () => {
           </Grid>
 
           <Box
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+            style={{ width: "100%", display: "flex", justifyContent: "center", marginTop: "20px" }}
           >
             <Pagination
               count={57}

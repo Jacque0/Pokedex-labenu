@@ -8,7 +8,6 @@ export const PageContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  overflow-y: scroll;
   @media screen and (max-width: 700px) {
     flex-direction: column;
     height: auto;
