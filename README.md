@@ -8,7 +8,7 @@ ________________________________________________________________________________
 [Diego Conte](https://github.com/diegocomte)
 
 **Site**\
-[Pokédex](http://pokenu.surge.sh/)
+[Pokédex](http://depressed-car.surge.sh/)
 
 **Tecnologias utilizadas**:\
 [MUI](https://mui.com/)\
