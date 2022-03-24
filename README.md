@@ -1,5 +1,6 @@
 **POKÉDEX**
 
+A Pokédex é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registra todas as espécies diferentes de Pokémon que são encontradas durante a sua viagem como treinadores.
 __________________________________________________________________________________________________________
 
 **Desenvolvedores**:\
@@ -22,7 +23,7 @@ ________________________________________________________________________________
 [Postman](https://www.postman.com/)\
 [Trello](https://trello.com/b/MAcvX0yf/pokedex)
 
-**O que funciona**
+**Funcionalidades da nossa Pokédex**
 - Visualização de 20 pokémons por página, numerados: os seus tipos são especificados no card e definem as cores de fundo;
 - É possível adicionar Pokémons à Pokédex e também removê-los. A seleção de Pokémons do usuário permanece disponível mesmo após atualização da página;
 - O header conduz o usuário, sinalizando as diferentes seções em que se encontra, proporcionando diferentes botões e títulos;
@@ -30,9 +31,6 @@ ________________________________________________________________________________
 - Pode-se percorrer todos os 1228 pokémos por meio da paginação;
 - Há loadings enquanto o carregamento é efetuado;
 
-
-**O que não funciona**
-- Todas as funcionalidades a que nos propusemos desenvolver estão funcionando.
 
 **Imagens**
 
