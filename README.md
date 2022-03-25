@@ -1,6 +1,6 @@
 **POKÉDEX**
 
-A Pokédex é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registrar todas as espécies diferentes de Pokémon que são encontradas durante a sua viagem como treinadores.
+A Pokédex é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registrar todas as espécies diferentes de Pokémon que são encontradas durante a sua viagem como treinadores. Desenvolvemos um site que imita algumas funções de uma Pokédex.
 __________________________________________________________________________________________________________
 
 **Desenvolvedores**:\
